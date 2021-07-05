@@ -1,11 +1,12 @@
 import React from "react";
+import {Router} from "./routes/Router";
 
-const  App = () => {
+const App = () => {
   return (
     <div>
-      Music
+      <Router />
     </div>
-  )
-}
+  );
+};
 
 export default App;
