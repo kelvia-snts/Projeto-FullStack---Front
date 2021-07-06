@@ -5,9 +5,11 @@
 * Fazer Login
 * Fazer Cadastro
 * feed
+* ver detalhes de uma música
+* adicionar música
 
 ### funcionalidades à serem implementadas
-* adicionar música
+
 * Criar Album 
 * Adicionar Gênero musical
 * 
