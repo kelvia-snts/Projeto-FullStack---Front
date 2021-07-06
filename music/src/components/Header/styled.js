@@ -13,7 +13,11 @@ export const Header = styled.header`
   -webkit-backdrop-filter: blur(110px);
   backdrop-filter: blur(10px);
   box-shadow: 0 3px 5px 15px rgba(0, 0, 0, 0.25);
-  background-color:#c3dbe8;
+  background-color: white;
+  border-top: 1px solid black;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  color: #020024;
 `;
 
 export const ContainerIcon = styled.div`

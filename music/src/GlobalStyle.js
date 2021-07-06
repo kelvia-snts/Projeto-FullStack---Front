@@ -8,3 +8,7 @@ export const LinearProgressGlobal = styled(LinearProgress)`
     background-color: #fede4f ;
   }
 `;
+
+export const ContainerGlobal = styled.div`
+  
+`

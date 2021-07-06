@@ -11,15 +11,16 @@ export const Input = styled.input`
 `;
 export const Label = styled.label`
   position: absolute;
-  background-color: white;
+  background-color:  #b8b8b8 ;
+  border-radius: 2px;
   bottom: 2.75rem;
   margin: 0 0 0 1rem;
-  width: 4.875rem;
+  width: 3.875rem;
   height: 1.125rem;
   font-family: Roboto;
-  font-size: 0.75rem;
+  font-size: 0.95rem;
   letter-spacing: -0.29px;
-  color: #b8b8b8;
+  color: white;
   padding: 0 0.25rem;
 `;
 export const IconPassword = styled.div`
@@ -34,6 +35,7 @@ export const FormControl = styled.div`
   border: solid 1px #b8b8b8;
   position: relative;
   height: 3.5rem;
+  background-color: white;
 `;
 export const DivInput = styled.div`
   display: flex;
