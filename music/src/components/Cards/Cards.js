@@ -8,7 +8,7 @@ export const CardMusic = (props) => {
       <h3>{props.title}</h3>
       <h4>{props.author}</h4>
       <h4>{props.date}</h4>
-      <p>{props.file}</p>
+      <h4>{props.file}</h4>
     </Cards>
   )
 }

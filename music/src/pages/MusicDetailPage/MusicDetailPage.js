@@ -20,7 +20,7 @@ export const MusicDetailsPage = () => {
       <h2>{music && music.title}</h2>
       <h3>Música ID: {music && music.id}</h3>
       <h3>Usuário ID: {music && music.author}</h3>
-      <h3>Link: {music && music.file}</h3>
-      <span>Criado em: {time(music && music.date)}</span>
+      <h3>{music && music.file}</h3>
+      <p>Criado em: {time(music && music.date)}</p>
     </div>);
 };

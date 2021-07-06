@@ -4,7 +4,9 @@ import MenuHeader from "../../components/Header/MenuHeader";
 import { useRequestData } from "../../hooks/useRequestData";
 import { CardMusic } from "../../components/Cards/Cards";
 import { useHistory } from "react-router-dom";
-import { goToMusicDetail } from "../../routes/Coordinator";
+import { goToAddMusic, goToMusicDetail } from "../../routes/Coordinator";
+
+import { ReactComponent as CreateMusic } from "../../assets/criar.svg";
 
 
 export const HomePage = () => {
@@ -26,6 +28,7 @@ export const HomePage = () => {
     <div>
       <MenuHeader currentPageLabel="Music" />
       <div>{musicComponent}</div>
+    <CreateMusic onClick={() => goToAddMusic(history)} />
     </div>
   );
 };

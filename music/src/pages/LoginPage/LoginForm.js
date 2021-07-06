@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "../../hooks/useForm";
 import { useHistory } from "react-router-dom";
-import { useUnprotectedPage } from "../../hooks/useUnprotectedPage";
 import { Form } from "../../components/Form/Form";
 import validateEmail from "../../constants/validateEmail";
 import Input from "../../components/Input/Input";
@@ -13,7 +12,6 @@ import { LinearProgressGlobal } from "../../GlobalStyle";
 import { goToHome } from "../../routes/Coordinator";
 
 export const LoginForm = () => {
-  useUnprotectedPage();
   const history = useHistory();
   const [form, onChange] = useForm({ email: "", password: "" });
   const [error, setError] = useState({});
