@@ -1,5 +1,13 @@
 import React from "react";
+import { useProtectedPage } from "../../hooks/useProtectedPage";
+import MenuHeader from "../../components/Header/MenuHeader"
 
 export const HomePage = () => {
-  return <div>HomePage</div>;
+  useProtectedPage();
+  return (
+    
+  <div>
+    <MenuHeader currentPageLabel="Music" />
+    </div>
+  );
 };

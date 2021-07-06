@@ -1,5 +1,10 @@
 import React from "react";
+import {SignupForm} from "./SignupForm"
 
-export const SignupPage = () => {
-  return <div>SignupPage</div>;
+export const SignupPage = ({ setRightButtonText }) => {
+  return(
+    <div>
+      <SignupForm setRightButtonText={setRightButtonText}/>
+    </div>
+  )
 };

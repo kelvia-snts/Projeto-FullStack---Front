@@ -13,9 +13,6 @@ export const goToAddMusic = (history) => {
 export const goToMusicDetail = (history, id) => {
   history.push(`/detalhe/${id}`)
 }
-export const goToLogin = (history) => {
-  history.push("/login")
-}
 export const goToBack = (history) => {
   history.goBack();
 };
