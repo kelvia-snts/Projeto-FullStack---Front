@@ -14,7 +14,6 @@ export const Header = styled.header`
   backdrop-filter: blur(10px);
   box-shadow: 0 3px 5px 15px rgba(0, 0, 0, 0.25);
   background-color: white;
-  border-top: 1px solid black;
   border-top-left-radius: 20px;
   border-bottom-right-radius: 20px;
   color: #020024;
