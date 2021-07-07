@@ -5,7 +5,8 @@ export const Cards = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 33vh;
+  width: 30vw;
+  height: 25vh;
   margin-bottom: 10px;
   cursor: pointer;
   &:hover {
@@ -13,10 +14,10 @@ export const Cards = styled.div`
       color: gray;
     }
   }
-  p{
-    font-size:0.875rem;
+  p {
+    font-size: 0.875rem;
     margin-top: 0.5rem;
-    max-width:80%;
+    max-width: 80%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

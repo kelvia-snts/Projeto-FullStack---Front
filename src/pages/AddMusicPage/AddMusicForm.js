@@ -10,6 +10,7 @@ import { LinearProgressGlobal } from "../../GlobalStyle";
 import { BASE_URL } from "../../constants/urls";
 import { goToHome } from "../../routes/Coordinator";
 import { useRequestData } from "../../hooks/useRequestData";
+import {FormMusic} from "./styled"
 
 export const AddMusicForm = () => {
   const history = useHistory();
@@ -42,10 +43,10 @@ export const AddMusicForm = () => {
     const currentError = {};
 
     if (form.title === "") {
-      currentError.email = "Título não foi inserido";
+      currentError.title = "Título não foi inserido";
     }
     if (form.file === "") {
-      currentError.email = "Link não foi inserido";
+      currentError.file = "Link não foi inserido";
     }
     setError({ ...currentError });
   };
@@ -57,7 +58,6 @@ export const AddMusicForm = () => {
       Authorization: localStorage.getItem("token")
     };
     const body = {...form, genresIds: [form.genresIds]}
-    console.log(body)
     axios
       .post(
         `
@@ -69,17 +69,16 @@ export const AddMusicForm = () => {
       )
       .then((response) => {
         goToHome(history);
-        console.log(response);
       })
       .catch((error) => {
         setLoading(false);
-        setSnack({ text: "Há Informações incorretas", success: false });
+        setSnack({ text: "Há Informações incorretas ou campos estão vazios", success: false });
         console.log(error.response ? error.response.data : error.message);
       });
   };
 
   return (
-    <div>
+    <FormMusic>
       <Form onSubmit={handleClick} title="Adicionar nova música">
         <Input
           label="Título"
@@ -101,7 +100,7 @@ export const AddMusicForm = () => {
           error={error["file"]}
           required={true}
         />
-        <label htmlFor="">Gênero ID *</label>
+        <label htmlFor="">Gênero Musical *</label>
         <select
           name={"genresIds"}
           value={form.genresIds}
@@ -111,7 +110,7 @@ export const AddMusicForm = () => {
           <option>Selecione</option>
           {genresComponents}
         </select>
-        <label>Álbum ID* </label>
+        <label>Playlist * </label>
         <select
           name={"albumId"}
           value={form.albumId}
@@ -128,6 +127,6 @@ export const AddMusicForm = () => {
         {loading && <LinearProgressGlobal />}
       </Form>
       {snack.text && <Snackbar text={snack.text} success={snack.success} />}
-    </div>
+    </FormMusic>
   );
 };

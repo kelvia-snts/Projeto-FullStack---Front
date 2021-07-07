@@ -12,7 +12,7 @@ export const Title = styled.h1`
   letter-spacing: -0.39px;
   padding: 0.75rem 0;
   font-family: Roboto;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;

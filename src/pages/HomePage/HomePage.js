@@ -5,6 +5,7 @@ import { useRequestData } from "../../hooks/useRequestData";
 import { CardMusic } from "../../components/Cards/Cards";
 import { useHistory } from "react-router-dom";
 import { goToAddMusic, goToMusicDetail } from "../../routes/Coordinator";
+import {MusicsContainer, FeedContainer} from "./styled"
 
 import { ReactComponent as CreateMusic } from "../../assets/criar.svg";
 
@@ -21,14 +22,14 @@ export const HomePage = () => {
 
   const musicComponent = 
     musics.map((music) => {
-      return <CardMusic title={music.title} author={music.author} onClick={()=> onClickMusic(music.id)} />;
+      return <CardMusic title={music.title} onClick={()=> onClickMusic(music.id)} />;
     });
 
   return (
-    <div>
+    <FeedContainer>
       <MenuHeader currentPageLabel="Music" />
-      <div>{musicComponent}</div>
     <CreateMusic onClick={() => goToAddMusic(history)} />
-    </div>
+      <MusicsContainer>{musicComponent}</MusicsContainer>
+    </FeedContainer>
   );
 };
