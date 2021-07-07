@@ -17,7 +17,7 @@ export const AddMusicForm = () => {
     title: "",
     file: "",
     genresIds: [],
-    albumId: "",   
+    albumId: "",
   });
   const [error, setError] = useState({});
   const [snack, setSnack] = useState({ text: "", success: false });
@@ -27,13 +27,13 @@ export const AddMusicForm = () => {
   const albumsComponents =
     albums &&
     albums.map((album) => {
-      return <option value="albumId">{album.id}</option>;
+      return <option value={album.id}>{album.name}</option>;
     });
 
   const genres = useRequestData("/music/genres", []);
 
   const genresComponents = genres.map((genre) => {
-    return <option value="genresIds">{genre.id}</option>;
+    return <option value={genre.id}>{genre.name}</option>;
   });
 
   const handleClick = (event) => {
@@ -53,16 +53,28 @@ export const AddMusicForm = () => {
   const create = () => {
     setSnack({ text: "" });
     setLoading(true);
+    const headers = {
+      Authorization: localStorage.getItem("token")
+    };
+    const body = {...form, genresIds: [form.genresIds]}
+    console.log(body)
     axios
-      .post(`${BASE_URL}/music/createMusic`, form)
+      .post(
+        `
+      ${BASE_URL}/music/createMusic`,
+        body,
+        {
+          headers,
+        }
+      )
       .then((response) => {
-        localStorage.setItem("token", response.data.token);
         goToHome(history);
         console.log(response);
       })
       .catch((error) => {
         setLoading(false);
         setSnack({ text: "Há Informações incorretas", success: false });
+        console.log(error.response ? error.response.data : error.message);
       });
   };
 
@@ -89,16 +101,6 @@ export const AddMusicForm = () => {
           error={error["file"]}
           required={true}
         />
-          {/* <Input
-            label="Gêneros ID"  
-            placeholder="Gênero"
-            type={"text"}
-            name={"genresIds"}
-            value={form.genresIds}
-            onChange={onChange}
-            error={error["genresIds"]}
-            required={true}
-          /> */}
         <label htmlFor="">Gênero ID *</label>
         <select
           name={"genresIds"}
