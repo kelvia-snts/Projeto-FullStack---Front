@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const Main = styled.form`
-  width: 100%;
+margin: auto;
+  width: 70vw;
   padding: 1rem 0rem;
   box-sizing: border-box;
 `;

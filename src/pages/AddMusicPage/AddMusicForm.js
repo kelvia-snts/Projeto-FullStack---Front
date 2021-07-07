@@ -10,7 +10,6 @@ import { LinearProgressGlobal } from "../../GlobalStyle";
 import { BASE_URL } from "../../constants/urls";
 import { goToHome } from "../../routes/Coordinator";
 import { useRequestData } from "../../hooks/useRequestData";
-import {FormMusic} from "./styled"
 
 export const AddMusicForm = () => {
   const history = useHistory();
@@ -78,7 +77,7 @@ export const AddMusicForm = () => {
   };
 
   return (
-    <FormMusic>
+    <div>
       <Form onSubmit={handleClick} title="Adicionar nova música">
         <Input
           label="Título"
@@ -127,6 +126,6 @@ export const AddMusicForm = () => {
         {loading && <LinearProgressGlobal />}
       </Form>
       {snack.text && <Snackbar text={snack.text} success={snack.success} />}
-    </FormMusic>
+    </div>
   );
 };

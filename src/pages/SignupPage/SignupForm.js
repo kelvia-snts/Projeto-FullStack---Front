@@ -8,7 +8,7 @@ import { goToHome } from "../../routes/Coordinator";
 import { Form } from "../../components/Form/Form";
 import Button from "@material-ui/core/Button";
 import Input from "../../components/Input/Input";
-import validateEmail from "../../constants/validateEmail";
+import {validateEmail} from "../../constants/validateEmail";
 import { LinearProgressGlobal } from "../../GlobalStyle";
 import Snackbar from "../../components/Snackbar/Snackbar";
 
@@ -64,7 +64,7 @@ export const SignupForm = () => {
       .catch((error) => {
         setLoading(false);
         setSnack({
-          text: "Não foi possível criar cadastro. Verifique se e-mail e/ou CPF já estão registrados em outra conta!",
+          text: "Não foi possível criar cadastro. Verifique preencheu todos os campos corretamente ou se o email já pertence a outra conta!",
           success: false,
         });
       });
@@ -114,7 +114,7 @@ export const SignupForm = () => {
           required={true}
         />
         <Button variant="contained" color="primary" onClick={signup}>
-          Cadastrar-se
+          Confirmar
         </Button>
         {loading && <LinearProgressGlobal />}
       </Form>
