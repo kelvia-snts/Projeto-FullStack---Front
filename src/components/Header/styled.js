@@ -14,17 +14,18 @@ export const Header = styled.header`
   backdrop-filter: blur(10px);
   box-shadow: 0 3px 5px 15px rgba(0, 0, 0, 0.25);
   background-color: white;
-  border-top-left-radius: 20px;
-  border-bottom-right-radius: 20px;
   color: #020024;
+  font-size: 2.3rem;
+  letter-spacing: 10px;
 `;
 
 export const ContainerIcon = styled.div`
   position: absolute;
   left: 1rem;
-  top: 0.625rem;
   cursor: pointer;
   svg {
-    width: 1.44rem;
+    width: 3.40rem;
+    margin-left: 49px;
+    margin-top: 50px;
   }
 `;

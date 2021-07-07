@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const Main = styled.form`
-  width: 100%;
+margin: auto;
+  width: 70vw;
   padding: 1rem 0rem;
   box-sizing: border-box;
 `;
@@ -12,7 +13,7 @@ export const Title = styled.h1`
   letter-spacing: -0.39px;
   padding: 0.75rem 0;
   font-family: Roboto;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;

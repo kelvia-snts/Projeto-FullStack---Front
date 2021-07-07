@@ -1,4 +1,4 @@
-const validateEmail = (field) => {
+export const validateEmail = (field) => {
   const usuario = field.substring(0, field.indexOf("@"));
   const dominio = field.substring(field.indexOf("@") + 1, field.length);
 
@@ -18,5 +18,3 @@ const validateEmail = (field) => {
     return false;
   }
 };
-
-export default validateEmail;

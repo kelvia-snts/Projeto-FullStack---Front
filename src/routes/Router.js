@@ -6,6 +6,7 @@ import {HomePage} from "../pages/HomePage/HomePage"
 import {AddMusicPage} from "../pages/AddMusicPage/AddMusicPage"
 import {MusicDetailsPage} from "../pages/MusicDetailPage/MusicDetailPage"
 import {ErrorPage} from "../pages/ErrorPage/ErrorPage"
+import {ProfilePage} from "../pages/ProfilePage/ProfilePage"
 
 export const Router = () => {
   return(
@@ -19,6 +20,9 @@ export const Router = () => {
         </Route>
         <Route exact path="/">
           <HomePage/> 
+        </Route>
+        <Route exact path="/perfil/:id">
+          <ProfilePage/> 
         </Route>
         <Route exact path="/adicionar-música">
           <AddMusicPage/> 

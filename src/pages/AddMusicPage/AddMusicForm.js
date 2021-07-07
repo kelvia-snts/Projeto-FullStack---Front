@@ -42,10 +42,10 @@ export const AddMusicForm = () => {
     const currentError = {};
 
     if (form.title === "") {
-      currentError.email = "Título não foi inserido";
+      currentError.title = "Título não foi inserido";
     }
     if (form.file === "") {
-      currentError.email = "Link não foi inserido";
+      currentError.file = "Link não foi inserido";
     }
     setError({ ...currentError });
   };
@@ -57,7 +57,6 @@ export const AddMusicForm = () => {
       Authorization: localStorage.getItem("token")
     };
     const body = {...form, genresIds: [form.genresIds]}
-    console.log(body)
     axios
       .post(
         `
@@ -69,11 +68,10 @@ export const AddMusicForm = () => {
       )
       .then((response) => {
         goToHome(history);
-        console.log(response);
       })
       .catch((error) => {
         setLoading(false);
-        setSnack({ text: "Há Informações incorretas", success: false });
+        setSnack({ text: "Há Informações incorretas ou campos estão vazios", success: false });
         console.log(error.response ? error.response.data : error.message);
       });
   };
@@ -101,7 +99,7 @@ export const AddMusicForm = () => {
           error={error["file"]}
           required={true}
         />
-        <label htmlFor="">Gênero ID *</label>
+        <label htmlFor="">Gênero Musical *</label>
         <select
           name={"genresIds"}
           value={form.genresIds}
@@ -111,7 +109,7 @@ export const AddMusicForm = () => {
           <option>Selecione</option>
           {genresComponents}
         </select>
-        <label>Álbum ID* </label>
+        <label>Playlist * </label>
         <select
           name={"albumId"}
           value={form.albumId}
