@@ -11,5 +11,4 @@ align-items: center;
   select{
     margin-bottom: 10px;
   }
-
 `

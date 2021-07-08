@@ -9,6 +9,8 @@ export const ProfilePage = () => {
   const params = useParams();
   const profile = useRequestData(`/user/profile/${params.id}`, {})
 
+  console.log();
+
  
   return(
     <div>
