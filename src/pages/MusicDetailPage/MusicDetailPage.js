@@ -18,16 +18,16 @@ export const MusicDetailsPage = () => {
       <MenuHeader isGoBack currentPageLabel={music && music.title} />
       <Section>
         <Music />
-          <embed
-            type="video/webm"
-            src={music && music.file}
-            width="250"
-            height="200"
-            />
+        <embed
+          type="video/webm"
+          src={music && music.file}
+          width="250"
+          height="200"
+        />
         <Details>
-          <summary>Detalhes da música</summary>
+          <summary>Detalhes</summary>
           <span>Link da música </span>
-            <u>{music && music.file}</u>
+          <u>{music && music.file}</u>
           <p>Postada em: {convertDate(music && music.date)}</p>
         </Details>
       </Section>

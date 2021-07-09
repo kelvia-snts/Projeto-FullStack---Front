@@ -54,9 +54,9 @@ export const AddMusicForm = () => {
     setSnack({ text: "" });
     setLoading(true);
     const headers = {
-      Authorization: localStorage.getItem("token")
+      Authorization: localStorage.getItem("token"),
     };
-    const body = {...form, genresIds: [form.genresIds]}
+    const body = { ...form, genresIds: [form.genresIds] };
     axios
       .post(
         `
@@ -71,7 +71,10 @@ export const AddMusicForm = () => {
       })
       .catch((error) => {
         setLoading(false);
-        setSnack({ text: "Há Informações incorretas ou campos estão vazios", success: false });
+        setSnack({
+          text: "Há Informações incorretas ou campos estão vazios",
+          success: false,
+        });
         console.log(error.response ? error.response.data : error.message);
       });
   };

@@ -1,12 +1,18 @@
 import React from "react";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
-import {ErrorContainer} from "./styled";
+import { ErrorContainer } from "./styled";
+import MenuHeader from "../../components/Header/MenuHeader";
 
 export const ErrorPage = () => {
   return (
-    <ErrorContainer>
-      <h1>ERROR 404 - página não encontrada</h1>
-      <Logo/>
-    </ErrorContainer>
-    );
+    <section>
+      <MenuHeader
+        isGoBack
+        currentPageLabel="ERROR 404 - página não encontrada"
+      />
+      <ErrorContainer>
+        <Logo />
+      </ErrorContainer>
+    </section>
+  );
 };

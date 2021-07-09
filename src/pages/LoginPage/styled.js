@@ -10,4 +10,9 @@ export const LoginContainer = styled.section`
   >span{
     margin-top: 20vh;
   }
+  @media (max-width: 600px) {
+    >button{
+      width: 50vw;
+    }
+  }
 `

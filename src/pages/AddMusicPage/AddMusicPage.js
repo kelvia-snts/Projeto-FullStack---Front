@@ -11,13 +11,13 @@ export const AddMusicPage = () => {
   return (
     <section>
       <MenuHeader isGoBack currentPageLabel="Configuração" />
-    <AddContainer>
-      <aside>
-      <AddAlbumForm />
-      <AddGenreForm />
-      </aside>
-      <AddMusicForm />
-    </AddContainer>
+      <AddContainer>
+        <aside>
+          <AddAlbumForm />
+          <AddGenreForm />
+        </aside>
+        <AddMusicForm />
+      </AddContainer>
     </section>
   );
 };

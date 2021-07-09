@@ -8,7 +8,7 @@ import { goToHome } from "../../routes/Coordinator";
 import { Form } from "../../components/Form/Form";
 import Button from "@material-ui/core/Button";
 import Input from "../../components/Input/Input";
-import {validateEmail} from "../../constants/validateEmail";
+import { validateEmail } from "../../constants/validateEmail";
 import { LinearProgressGlobal } from "../../GlobalStyle";
 import Snackbar from "../../components/Snackbar/Snackbar";
 

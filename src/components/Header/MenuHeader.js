@@ -10,7 +10,7 @@ export default function MenuHeader({ currentPageLabel, isGoBack, goTo }) {
     <Header>
       {isGoBack && (
         <ContainerIcon onClick={goTo ? goTo : history.goBack}>
-          <BackIcon/>
+          <BackIcon />
         </ContainerIcon>
       )}
       {currentPageLabel}
