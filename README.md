@@ -1,4 +1,6 @@
 # Projeto FRONT-END desenvolvido durante o curso Web Full-Stack
+![image](https://user-images.githubusercontent.com/69319634/125129596-15e6c300-e0d6-11eb-9499-4931500cf2e4.png)
+
 
 ### O que funciona
 
@@ -9,7 +11,8 @@
 * Criar uma playlist, adicionar gênero musical e Adicionar uma música a uma Playlist Criada
 
 ### O que falta finalizar:
-* Perfil do usuário
+* trazer dados para o Perfil do usuário
+* excluir token do localStorage quando o token expirar
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
