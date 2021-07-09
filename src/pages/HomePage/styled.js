@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const FeedContainer = styled.div`
+export const FeedContainer = styled.section`
 img{
   width: 100px;
   position: fixed; 
@@ -21,7 +21,7 @@ img{
       }
     }
 `
-export const MusicsContainer = styled.div`
+export const MusicsContainer = styled.nav`
 
   width: 100%;
   margin-top: 50px;

@@ -9,15 +9,15 @@ import { AddContainer } from "./styled";
 export const AddMusicPage = () => {
   useProtectedPage();
   return (
-    <div>
+    <section>
       <MenuHeader isGoBack currentPageLabel="Configuração" />
     <AddContainer>
-      <div>
+      <aside>
       <AddAlbumForm />
       <AddGenreForm />
-      </div>
+      </aside>
       <AddMusicForm />
     </AddContainer>
-    </div>
+    </section>
   );
 };
