@@ -13,6 +13,7 @@ Link: https://music-k.surge.sh/login
 ### O que falta finalizar:
 * trazer dados para o Perfil do usuário
 * excluir token do localStorage quando o token expirar
+* estilização
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
