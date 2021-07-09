@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-display: flex;
-margin-left: 25px;
-  svg{
-    width: 30px;
+  display: flex;
+  margin-left: 25px;
+  svg {
+    width: 40px;
     margin-right: -48px;
   }
-` 
+`;
 
 export const Cards = styled.div`
   display: flex;
@@ -17,7 +17,7 @@ export const Cards = styled.div`
   height: 8vh;
   margin-bottom: 10px;
   cursor: pointer;
-  border: 1px solid white;
+  border: 2px solid darkgray;
   border-radius: 10px;
   &:hover {
     h3 {
@@ -25,7 +25,7 @@ export const Cards = styled.div`
     }
   }
   h3 {
-    font-size: 0.910rem;
+    font-size: 0.91rem;
     margin-top: 0.5rem;
     max-width: 50%;
     white-space: nowrap;
@@ -33,4 +33,7 @@ export const Cards = styled.div`
     text-overflow: ellipsis;
     margin: 0;
   }
-`
+  @media (max-width: 600px) {
+    width: 43vw;
+  }
+`;

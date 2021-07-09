@@ -7,13 +7,12 @@ import { useProtectedPage } from "../../hooks/useProtectedPage";
 export const ProfilePage = () => {
   useProtectedPage();
   const params = useParams();
-  const profile = useRequestData(`/user/profile/${params.id}`, {})
+  const profile = useRequestData(`/user/profile/${params.id}`, {});
 
- 
-  return(
+  return (
     <div>
       <MenuHeader isGoBack currentPageLabel="Perfil" />
       <h3>álbuns</h3>
     </div>
-  )
-}
+  );
+};
