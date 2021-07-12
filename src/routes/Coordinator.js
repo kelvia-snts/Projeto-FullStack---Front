@@ -10,9 +10,6 @@ export const goToHome = (history) => {
 export const goToAddMusic = (history) => {
   history.push("/adicionar-música")
 }
-export const goToMusicDetail = (history, id) => {
-  history.push(`/detalhe/${id}`)
-}
 export const goToProfile = (history, id) => {
   history.push(`/perfil/${id}`)
 }

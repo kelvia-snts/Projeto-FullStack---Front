@@ -6,9 +6,7 @@ img{
   position: fixed; 
   margin-top: -15vh;
   margin-left: 4vw;
-  &:hover{
-    cursor: pointer;
-  }
+  
 }
     >svg{
       width: 60px;
@@ -17,9 +15,6 @@ img{
       margin-left: 87vw;
       border-top-right-radius: 20px;
       border-top-left-radius: 20px;
-      &: hover{
-        cursor: pointer;
-      }
     }
     @media (max-width: 600px) {
       img{
@@ -32,12 +27,28 @@ img{
       }
     }
 `
+export const Component = styled.section`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    details{
+    display: flex;
+    margin-top: -100px;
+    text-align: center;
+    border-bottom: 1px solid white;
+    >embed{
+      margin: auto;
+    }
+  }
+`
+
 export const MusicsContainer = styled.nav`
   width: 100%;
   margin-top: 50px;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  
 
   @media (max-width: 600px) {
     display: flex;
