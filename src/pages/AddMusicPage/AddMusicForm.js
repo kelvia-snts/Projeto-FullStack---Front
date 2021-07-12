@@ -16,8 +16,8 @@ export const AddMusicForm = () => {
   const [form, onChange] = useForm({
     title: "",
     file: "",
-    genresIds: [],
-    albumId: "",
+    genre_id: [],
+    album_id: "",
   });
   const [error, setError] = useState({});
   const [snack, setSnack] = useState({ text: "", success: false });
@@ -56,11 +56,11 @@ export const AddMusicForm = () => {
     const headers = {
       Authorization: localStorage.getItem("token"),
     };
-    const body = { ...form, genresIds: [form.genresIds] };
+    const body = { ...form, genre_id: [form.genre_id] };
     axios
       .post(
         `
-      ${BASE_URL}/music/createMusic`,
+      ${BASE_URL}/music/create`,
         body,
         {
           headers,
@@ -104,8 +104,8 @@ export const AddMusicForm = () => {
         />
         <label htmlFor="">Gênero Musical *</label>
         <select
-          name={"genresIds"}
-          value={form.genresIds}
+          name={"genre_id"}
+          value={form.genre_id}
           onChange={onChange}
           required={true}
         >
@@ -114,8 +114,8 @@ export const AddMusicForm = () => {
         </select>
         <label>Playlist * </label>
         <select
-          name={"albumId"}
-          value={form.albumId}
+          name={"album_id"}
+          value={form.album_id}
           onChange={onChange}
           required={true}
         >

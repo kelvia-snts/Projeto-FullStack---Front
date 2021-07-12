@@ -4,38 +4,43 @@ import MenuHeader from "../../components/Header/MenuHeader";
 import { useRequestData } from "../../hooks/useRequestData";
 import { CardMusic } from "../../components/Cards/Cards";
 import { useHistory } from "react-router-dom";
-import profile from "../../assets/profile.png";
+import Button from "@material-ui/core/Button";
 import {
-  goToAddMusic,
-  goToMusicDetail,
   goToProfile,
 } from "../../routes/Coordinator";
-import { MusicsContainer, FeedContainer } from "./styled";
-
-import { ReactComponent as CreateMusic } from "../../assets/criar.svg";
-import { ReactComponent as Profile } from "../../assets/profile.svg";
+import { MusicsContainer, FeedContainer, Component } from "./styled";
+import { convertDate } from "../../constants/ConvertDate";
 
 export const HomePage = () => {
   useProtectedPage();
   const history = useHistory();
-  const onClickMusic = (id) => {
-    goToMusicDetail(history, id);
-  };
 
-  const musics = useRequestData("/music/all", []);
+  const musics = useRequestData("/music/feed", {});
 
-  const musicComponent = musics.map((music) => {
+  const musicComponent = musics.musics ? musics.musics.map((music) => {
     return (
-      <CardMusic title={music.title} onClick={() => onClickMusic(music.id)} />
+    <Component>
+      <CardMusic author={music.user} title={music.title} />
+      <details>
+      <embed
+          type="video/webm"
+          src={music.file}
+          width="150"
+          height="100"
+        />
+        <span>Link:  </span>
+        <u>{music.file}</u>
+        <p> Postada	em: {convertDate(music.date)}</p>
+      </details>
+      </Component>
     );
-  });
+  }) : []
 
   return (
     <div>
       <MenuHeader currentPageLabel="Feed" />
       <FeedContainer>
-        <img src={profile} onClick={() => goToProfile(history)} />
-        <CreateMusic onClick={() => goToAddMusic(history)} />
+        <Button variant="contained" color="primary" onClick={() => goToProfile(history)}>Perfil</Button>
         <MusicsContainer>{musicComponent}</MusicsContainer>
       </FeedContainer>
     </div>

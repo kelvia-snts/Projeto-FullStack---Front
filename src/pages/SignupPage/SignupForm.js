@@ -20,6 +20,7 @@ export const SignupForm = () => {
     email: "",
     password: "",
     nickname: "",
+    role: ""
   });
   const [error, setError] = useState({});
   const [snack, setSnack] = useState({ text: "", success: false });
@@ -32,6 +33,9 @@ export const SignupForm = () => {
 
     if (form.name === "") {
       currentError.name = "Nome não foi inserido";
+    }
+    if (form.role === "") {
+      currentError.name = "Tipo de conta não foi inserido";
     }
 
     if (form.email === "") {
@@ -56,7 +60,7 @@ export const SignupForm = () => {
     setSnack({ text: "" });
     setLoading(true);
     axios
-      .post(`${BASE_URL}/user/signup`, form)
+      .post(`${BASE_URL}/user/register`, form)
       .then((response) => {
         localStorage.setItem("token", response.data.token);
         goToHome(history);
@@ -113,6 +117,16 @@ export const SignupForm = () => {
           error={error["nickname"]}
           required={true}
         />
+        <label htmlFor="">Tipo de conta *</label>
+        <select
+         name={"role"}
+         value={form.role}
+         onChange={onChange}
+         required={true}>
+          <option>Selecione</option>
+          <option>NORMAL</option>
+          <option>ADMINISTRADOR</option>
+        </select>
         <Button variant="contained" color="primary" onClick={signup}>
           Confirmar
         </Button>

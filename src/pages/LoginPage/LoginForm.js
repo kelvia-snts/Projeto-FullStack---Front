@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "../../hooks/useForm";
 import { useHistory } from "react-router-dom";
 import { Form } from "../../components/Form/Form";
-import { validateEmail } from "../../constants/validateEmail";
+//import { validateEmail } from "../../constants/validateEmail";
 import Input from "../../components/Input/Input";
 import Snackbar from "../../components/Snackbar/Snackbar";
 import { BASE_URL } from "../../constants/urls";
@@ -13,7 +13,7 @@ import { goToHome } from "../../routes/Coordinator";
 
 export const LoginForm = () => {
   const history = useHistory();
-  const [form, onChange] = useForm({ email: "", password: "" });
+  const [form, onChange] = useForm({ login: "", password: "" });
   const [error, setError] = useState({});
   const [snack, setSnack] = useState({ text: "", success: false });
   const [loading, setLoading] = useState(false);
@@ -24,10 +24,10 @@ export const LoginForm = () => {
     const currentError = {};
 
     if (form.email === "") {
-      currentError.email = "E-mail não foi inserido";
-    } else if (!validateEmail(form.email)) {
+      currentError.login = "E-mail não foi inserido";
+    } /* else if (!validateEmail(form.login)) {
       currentError.email = "E-mail inválido";
-    }
+    } */
     if (form.password === "") {
       currentError.password = "Senha não foi inserida";
     } else if (form.password.length < 6) {
@@ -53,16 +53,16 @@ export const LoginForm = () => {
   };
 
   return (
-    <div>
+    <section>
       <Form onSubmit={handleClick} title="Entrar">
         <Input
-          label="Email"
-          placeholder="email@email.com"
+          label="login"
+          placeholder="email@email.com ou nickname"
           type={"email"}
-          name={"email"}
-          value={form.email}
+          name={"login"}
+          value={form.login}
           onChange={onChange}
-          error={error["email"]}
+          error={error["login"]}
           required={true}
         />
         <Input
@@ -81,6 +81,6 @@ export const LoginForm = () => {
         {loading && <LinearProgressGlobal />}
       </Form>
       {snack.text && <Snackbar text={snack.text} success={snack.success} />}
-    </div>
+    </section>
   );
 };
