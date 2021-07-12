@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 import MenuHeader from "../../components/Header/MenuHeader";
 import { useRequestData } from "../../hooks/useRequestData";
@@ -10,12 +11,26 @@ import {
 } from "../../routes/Coordinator";
 import { MusicsContainer, FeedContainer, Component } from "./styled";
 import { convertDate } from "../../constants/ConvertDate";
+import { BASE_URL } from "../../constants/urls";
 
 export const HomePage = () => {
   useProtectedPage();
   const history = useHistory();
 
   const musics = useRequestData("/music/feed", {});
+
+  const body = "?"
+
+  const follow = (id) => {
+    axios
+    .put(`${BASE_URL}/user/follow`, body, {
+      headers:{
+        Authorization: localStorage.getItem("token")
+    }
+  })
+  .then((response) => {})
+  .catch((error) => {})
+  } 
 
   const musicComponent = musics.musics ? musics.musics.map((music) => {
     return (
@@ -32,6 +47,9 @@ export const HomePage = () => {
         <u>{music.file}</u>
         <p> Postada	em: {convertDate(music.date)}</p>
       </details>
+      <Button variant="contained"
+          color="primary"
+          onClick={() => ("")}>Seguir</Button>
       </Component>
     );
   }) : []

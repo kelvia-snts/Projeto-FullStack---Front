@@ -9,9 +9,10 @@ Link: https://music-k.surge.sh/login
 * Feed
 * detalhes de uma música 
 * Criar uma playlist, adicionar gênero musical e Adicionar uma música a uma Playlist Criada
+* ver perfil com as músicas do usuário
+* deletar música
 
 ### O que falta finalizar:
-* trazer dados para o Perfil do usuário
 * excluir token do localStorage quando o token expirar
 * estilização
 

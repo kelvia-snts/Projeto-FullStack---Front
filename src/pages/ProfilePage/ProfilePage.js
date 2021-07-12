@@ -10,20 +10,18 @@ import { MusicsContainer, FeedContainer } from "./styled";
 import { convertDate } from "../../constants/ConvertDate";
 import axios from "axios";
 import { BASE_URL } from "../../constants/urls";
-//import { LinearProgressGlobal } from "../../GlobalStyle";
 import Snackbar from "../../components/Snackbar/Snackbar";
+
 
 export const ProfilePage = () => {
   useProtectedPage();
   const [snack, setSnack] = useState({ text: "", success: false });
-  const [loading, setLoading] = useState(false);
   const history = useHistory();
 
   const musics = useRequestData("/music/all", []);
 
   const deleteMusic = (id) => {
     setSnack({ text: "" });
-    setLoading(true);
     axios
       .delete(`${BASE_URL}/music/delete/${id}`, {
         headers: {
@@ -32,11 +30,10 @@ export const ProfilePage = () => {
       })
       .then((response) => {
         setSnack({ text: "Música excluída com sucesso", success: true });
-        goToProfile(history);
+        window.location.reload();
         console.log(response.data)
       })
       .catch((error) => {
-        setLoading(false);
         setSnack({
           text: "Error",
           success: false,
@@ -56,7 +53,6 @@ export const ProfilePage = () => {
         >
           deletar
         </Button>
-        {/* {loading && <LinearProgressGlobal />} */}
         <details>
           <embed type="video/webm" src={music.file} width="150" height="100" />
           <span>Link: </span>
@@ -76,8 +72,9 @@ export const ProfilePage = () => {
           variant="contained"
           color="primary"
           onClick={() => goToAddMusic(history)}
+          
         >
-          Adicionar Novas Músicas
+          Adicionar novas
         </Button>
         <MusicsContainer >{musicComponent}</MusicsContainer>
       </FeedContainer>
