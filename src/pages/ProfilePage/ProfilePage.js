@@ -5,13 +5,13 @@ import { useRequestData } from "../../hooks/useRequestData";
 import { CardMusic } from "../../components/Cards/Cards";
 import { useHistory, useParams } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import { goToAddMusic, goToProfile } from "../../routes/Coordinator";
-import { MusicsContainer, FeedContainer } from "./styled";
+import { goToAddMusic } from "../../routes/Coordinator";
+import { MusicsContainer, FeedContainer, Section, ProfileContainer, Div} from "./styled";
 import { convertDate } from "../../constants/ConvertDate";
 import axios from "axios";
 import { BASE_URL } from "../../constants/urls";
 import Snackbar from "../../components/Snackbar/Snackbar";
-
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 
 export const ProfilePage = () => {
   useProtectedPage();
@@ -19,6 +19,7 @@ export const ProfilePage = () => {
   const history = useHistory();
 
   const musics = useRequestData("/music/all", []);
+  
 
   const deleteMusic = (id) => {
     setSnack({ text: "" });
@@ -31,7 +32,7 @@ export const ProfilePage = () => {
       .then((response) => {
         setSnack({ text: "Música excluída com sucesso", success: true });
         window.location.reload();
-        console.log(response.data)
+        console.log(response.data);
       })
       .catch((error) => {
         setSnack({
@@ -44,41 +45,39 @@ export const ProfilePage = () => {
 
   const musicComponent = musics.map((music) => {
     return (
-      <div>
+      <Section>
         <CardMusic title={music.title} />
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => deleteMusic(music.id)}
-        >
-          deletar
-        </Button>
         <details>
           <embed type="video/webm" src={music.file} width="150" height="100" />
           <span>Link: </span>
           <u>{music.file}</u>
           <p>Postada em: {convertDate(music.date)}</p>
         </details>
-      </div>
-    );
-  });
-
-
-  return (
-    <div>
-      <MenuHeader isGoBack currentPageLabel="Minhas músicas" />
-      <FeedContainer>
         <Button
           variant="contained"
           color="primary"
-          onClick={() => goToAddMusic(history)}
-          
+          onClick={() => deleteMusic(music.id)}
         >
-          Adicionar novas
+          Excluir
         </Button>
-        <MusicsContainer >{musicComponent}</MusicsContainer>
+      </Section>
+    );
+  });
+
+  const name = musics.map((music) => {
+    return music.user
+  })
+
+  return (
+    <Div>
+     <MenuHeader isGoBack currentPageLabel={name[0]} />
+      <AddCircleOutlineIcon style={{ fontSize: 66 }} color="primary" onClick={() => goToAddMusic(history)} />
+    <ProfileContainer>
+      <FeedContainer>
+        <MusicsContainer>{musicComponent}</MusicsContainer>
       </FeedContainer>
       {snack.text && <Snackbar text={snack.text} success={snack.success} />}
-    </div>
+    </ProfileContainer>
+    </Div>
   );
 };

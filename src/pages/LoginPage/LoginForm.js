@@ -10,6 +10,7 @@ import axios from "axios";
 import Button from "@material-ui/core/Button";
 import { LinearProgressGlobal } from "../../GlobalStyle";
 import { goToHome } from "../../routes/Coordinator";
+import {Section} from "./styled"
 
 export const LoginForm = () => {
   const history = useHistory();
@@ -53,7 +54,7 @@ export const LoginForm = () => {
   };
 
   return (
-    <section>
+    <Section>
       <Form onSubmit={handleClick} title="Entrar">
         <Input
           label="login"
@@ -81,6 +82,6 @@ export const LoginForm = () => {
         {loading && <LinearProgressGlobal />}
       </Form>
       {snack.text && <Snackbar text={snack.text} success={snack.success} />}
-    </section>
+    </Section>
   );
 };

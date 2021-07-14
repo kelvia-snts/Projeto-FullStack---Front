@@ -5,13 +5,13 @@ import MenuHeader from "../../components/Header/MenuHeader";
 import { useRequestData } from "../../hooks/useRequestData";
 import { CardMusic } from "../../components/Cards/Cards";
 import { useHistory } from "react-router-dom";
-import Button from "@material-ui/core/Button";
-import {
-  goToProfile,
-} from "../../routes/Coordinator";
-import { MusicsContainer, FeedContainer, Component } from "./styled";
+import { goToProfile } from "../../routes/Coordinator";
+import { MusicsContainer, FeedContainer, Component, Svg, Div } from "./styled";
 import { convertDate } from "../../constants/ConvertDate";
 import { BASE_URL } from "../../constants/urls";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
 
 export const HomePage = () => {
   useProtectedPage();
@@ -19,48 +19,63 @@ export const HomePage = () => {
 
   const musics = useRequestData("/music/feed", {});
 
-  const body = "?"
+ 
 
-  const follow = (id) => {
+  const body = localStorage.token
+  
+  console.log(body);
+
+  const follow = () => {
+    const headers = {
+      Authorization: localStorage.getItem("token"),
+    };
     axios
-    .put(`${BASE_URL}/user/follow`, body, {
-      headers:{
-        Authorization: localStorage.getItem("token")
-    }
-  })
-  .then((response) => {})
-  .catch((error) => {})
-  } 
+    .put(`${BASE_URL}/follow`, body, {
+      headers,
+    })
+    .then((response) => {})
+    .cacth((error) => {})
+  }
 
-  const musicComponent = musics.musics ? musics.musics.map((music) => {
-    return (
-    <Component>
-      <CardMusic author={music.user} title={music.title} />
-      <details>
-      <embed
-          type="video/webm"
-          src={music.file}
-          width="150"
-          height="100"
-        />
-        <span>Link:  </span>
-        <u>{music.file}</u>
-        <p> Postada	em: {convertDate(music.date)}</p>
-      </details>
-      <Button variant="contained"
-          color="primary"
-          onClick={() => ("")}>Seguir</Button>
-      </Component>
-    );
-  }) : []
+  const logout = () => {
+    localStorage.removeItem("token");
+    window.location.reload();
+  };
+
+  const musicComponent = musics.musics
+    ? musics.musics.map((music) => {
+        return (
+          <Component>
+            <Div>
+            <CardMusic author={music.user} title={music.title} />
+           <PersonAddIcon style={{ fontSize: 30}} color="primary" onClick={() => follow()}/>
+            </Div>
+            <details>
+              <embed
+                type="video/webm"
+                src={music.file}
+                width="150"
+                height="100"
+              />
+              <span>Link: </span>
+              <u>{music.file}</u>
+              <p> Postada em: {convertDate(music.date)}</p>
+            </details>
+          </Component>
+        );
+      })
+    : [];
 
   return (
-    <div>
+    <section>
       <MenuHeader currentPageLabel="Feed" />
-      <FeedContainer>
-        <Button variant="contained" color="primary" onClick={() => goToProfile(history)}>Perfil</Button>
+      <Svg>
+      <AccountCircleIcon style={{ fontSize: 66 }} color="primary" onClick={() => goToProfile(history)} />
+      <ExitToAppIcon style={{ fontSize: 66 }} color="primary" onClick={() => logout()}/>
+      </Svg>
+      <section>
         <MusicsContainer>{musicComponent}</MusicsContainer>
-      </FeedContainer>
-    </div>
+      </section>
+    </section>
   );
 };

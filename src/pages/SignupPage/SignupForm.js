@@ -11,6 +11,7 @@ import Input from "../../components/Input/Input";
 import { validateEmail } from "../../constants/validateEmail";
 import { LinearProgressGlobal } from "../../GlobalStyle";
 import Snackbar from "../../components/Snackbar/Snackbar";
+import {Section} from "./styled";
 
 export const SignupForm = () => {
   useUnprotectedPage();
@@ -75,7 +76,7 @@ export const SignupForm = () => {
   };
 
   return (
-    <div>
+    <Section>
       <Form onSubmit={handleClick} title="Cadastro">
         <Input
           label="Nome"
@@ -133,6 +134,6 @@ export const SignupForm = () => {
         {loading && <LinearProgressGlobal />}
       </Form>
       {snack.text && <Snackbar text={snack.text} success={snack.success} />}
-    </div>
+    </Section>
   );
 };
