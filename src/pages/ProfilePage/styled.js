@@ -18,6 +18,9 @@ export const MusicsContainer = styled.nav`
 `;
 
 export const Div = styled.div`
+h3{
+  cursor: pointer;
+}
   >svg{
     position: relative;
     left: 94vw;

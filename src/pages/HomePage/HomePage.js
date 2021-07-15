@@ -11,31 +11,16 @@ import { convertDate } from "../../constants/ConvertDate";
 import { BASE_URL } from "../../constants/urls";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import Button from "@material-ui/core/Button";
 
 export const HomePage = () => {
   useProtectedPage();
   const history = useHistory();
 
   const musics = useRequestData("/music/feed", {});
+  const profile = useRequestData("/user/profile/:id", [])
 
- 
 
-  const body = localStorage.token
-  
-  console.log(body);
-
-  const follow = () => {
-    const headers = {
-      Authorization: localStorage.getItem("token"),
-    };
-    axios
-    .put(`${BASE_URL}/follow`, body, {
-      headers,
-    })
-    .then((response) => {})
-    .cacth((error) => {})
-  }
 
   const logout = () => {
     localStorage.removeItem("token");
@@ -48,7 +33,6 @@ export const HomePage = () => {
           <Component>
             <Div>
             <CardMusic author={music.user} title={music.title} />
-           <PersonAddIcon style={{ fontSize: 30}} color="primary" onClick={() => follow()}/>
             </Div>
             <details>
               <embed

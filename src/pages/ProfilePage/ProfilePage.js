@@ -5,7 +5,7 @@ import { useRequestData } from "../../hooks/useRequestData";
 import { CardMusic } from "../../components/Cards/Cards";
 import { useHistory, useParams } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import { goToAddMusic } from "../../routes/Coordinator";
+import { goToAddMusic, goToAlbum } from "../../routes/Coordinator";
 import { MusicsContainer, FeedContainer, Section, ProfileContainer, Div} from "./styled";
 import { convertDate } from "../../constants/ConvertDate";
 import axios from "axios";
@@ -20,6 +20,26 @@ export const ProfilePage = () => {
 
   const musics = useRequestData("/music/all", []);
   
+  const musicComponent = musics.map((music) => {
+    return (
+      <Section>
+        <CardMusic title={music.title} />
+        <details>
+          <embed type="video/webm" src={music.file} width="150" height="100" />
+          <span>Link: </span>
+          <u>{music.file}</u>
+          <p>Postada em: {convertDate(music.date)}</p>
+        </details>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => deleteMusic(music.id)}
+        >
+          Excluir
+        </Button>
+      </Section>
+    );
+  });
 
   const deleteMusic = (id) => {
     setSnack({ text: "" });
@@ -43,27 +63,6 @@ export const ProfilePage = () => {
       });
   };
 
-  const musicComponent = musics.map((music) => {
-    return (
-      <Section>
-        <CardMusic title={music.title} />
-        <details>
-          <embed type="video/webm" src={music.file} width="150" height="100" />
-          <span>Link: </span>
-          <u>{music.file}</u>
-          <p>Postada em: {convertDate(music.date)}</p>
-        </details>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => deleteMusic(music.id)}
-        >
-          Excluir
-        </Button>
-      </Section>
-    );
-  });
-
   const name = musics.map((music) => {
     return music.user
   })
@@ -72,6 +71,7 @@ export const ProfilePage = () => {
     <Div>
      <MenuHeader isGoBack currentPageLabel={name[0]} />
       <AddCircleOutlineIcon style={{ fontSize: 66 }} color="primary" onClick={() => goToAddMusic(history)} />
+    <h3 onClick={() => goToAlbum(history)}>Ver Albums</h3>
     <ProfileContainer>
       <FeedContainer>
         <MusicsContainer>{musicComponent}</MusicsContainer>

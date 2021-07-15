@@ -6,6 +6,7 @@ import {HomePage} from "../pages/HomePage/HomePage"
 import {AddMusicPage} from "../pages/AddMusicPage/AddMusicPage"
 import {ErrorPage} from "../pages/ErrorPage/ErrorPage"
 import {ProfilePage} from "../pages/ProfilePage/ProfilePage"
+import { Albums } from '../pages/Albums';
 
 export const Router = () => {
   return(
@@ -22,6 +23,9 @@ export const Router = () => {
         </Route>
         <Route exact path="/perfil/:id">
           <ProfilePage/> 
+        </Route>
+        <Route exact path="/albums">
+          <Albums/> 
         </Route>
         <Route exact path="/adicionar-música">
           <AddMusicPage/> 
