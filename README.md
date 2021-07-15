@@ -1,10 +1,12 @@
 # Projeto FRONT-END desenvolvido durante o curso Web Full-Stack
-![image](https://user-images.githubusercontent.com/69319634/125129596-15e6c300-e0d6-11eb-9499-4931500cf2e4.png)
+![image](https://user-images.githubusercontent.com/69319634/125846679-697c69a0-7423-4081-9b0b-3822bfafe994.png)
 
 
 ### O que funciona
 
+
 * Login
+* logout
 * Cadastro
 * Feed
 * detalhes de uma música 
@@ -13,8 +15,8 @@
 * deletar música
 
 ### O que falta finalizar:
-* excluir token do localStorage quando o token expirar
-* estilização
+* Pagina com todos os Albums criados pelo usuário 
+* estilização e Responsividade
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
