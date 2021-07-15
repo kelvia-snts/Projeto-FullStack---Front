@@ -1,13 +1,15 @@
 # Projeto FRONT-END desenvolvido durante o curso Web Full-Stack
 ![image](https://user-images.githubusercontent.com/69319634/125846679-697c69a0-7423-4081-9b0b-3822bfafe994.png)
 
+[Link surge](https://music-k.surge.sh/login)
+
 
 ### O que funciona
 
 
 * Login
-* logout
 * Cadastro
+* logout
 * Feed
 * detalhes de uma música 
 * Criar uma playlist, adicionar gênero musical e Adicionar uma música a uma Playlist Criada
