@@ -9,16 +9,16 @@ export const Cards = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 30vw;
+  width: 20vw;
   &:hover {
     h2 {
       color: gray;
     }
   }
-  h2 {
-    font-size: 0.91rem;
+  h3 {
+    font-size: 1.21rem;
     margin-top: 0.5rem;
-    max-width: 50%;
+    max-width: 90%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

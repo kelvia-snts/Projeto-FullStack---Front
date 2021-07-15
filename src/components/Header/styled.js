@@ -24,8 +24,9 @@ export const ContainerIcon = styled.div`
   left: 1rem;
   cursor: pointer;
   svg {
-    width: 3.40rem;
-    margin-left: 49px;
-    margin-top: 50px;
+    width: 2.40rem;
+    position: relative;
+    top: 5px;
+    
   }
 `;

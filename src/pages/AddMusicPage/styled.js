@@ -11,4 +11,8 @@ align-items: center;
   select{
     margin-bottom: 10px;
   }
+  button{
+    width: 50%;
+    margin-left: 25%;
+  }
 `

@@ -13,6 +13,9 @@ export const goToAddMusic = (history) => {
 export const goToProfile = (history, id) => {
   history.push(`/perfil/${id}`)
 }
+export const goToAlbum= (history) => {
+  history.push(`/albums`)
+}
 export const goToBack = (history) => {
   history.goBack();
 };
